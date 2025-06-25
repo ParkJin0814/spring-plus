@@ -42,7 +42,7 @@ public class JwtUtil {
                         .setSubject(String.valueOf(userId))
                         .claim("nickname", nickname)
                         .claim("email", email)
-                        .claim("userRole", userRole)
+                        .claim("userRole", userRole.getRoleName())
                         .setExpiration(new Date(date.getTime() + TOKEN_TIME))
                         .setIssuedAt(date) // 발급일
                         .signWith(key, signatureAlgorithm) // 암호화 알고리즘
